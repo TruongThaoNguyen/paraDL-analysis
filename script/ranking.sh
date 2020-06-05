@@ -1,0 +1,2 @@
+python parallel_analysis.py -net ./RESNET50_ImageNet_profall.net_sc  -plat ABCI.plat -goal 1 --cmaxp 4096 --cmaxB 262144 --cBon=64 --paratype o,d,df --debug y --lc filter_resnet.lc >> resnet_ranking_2.log
+python parallel_analysis.py -net ./RESNET50_ImageNet_profall.net_sc  -plat ABCI.plat -goal 1 --cmaxp 4096 --cmaxB 262144 --cBon=64 --paratype ds --debug y --lc spatial_resnet.lc >> resnet_ranking_2.log

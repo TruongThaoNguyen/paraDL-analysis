@@ -1,0 +1,111 @@
+#######################################################
+-net ./ALEXNET_ImageNet_profall.net_sc -plat ABCI.plat -goal 1 --paratype ['c']
+--cmaxB 2000000.0 --cmaxp 2048.0 --cBon 512.0
+====================================
+Read platform from  ABCI.plat
+====================================
+FILE:  ABCI.plat
+MEM_PER_NODE:  16000000000.0
+NODE_SPEED:  7.8e+12
+BANDWIDTH:  12500000000.0
+LATENCY:  5e-07
+MAX_NODE:  4096.0
+====================================
+Read dataset and DNN from  ./ALEXNET_ImageNet_profall.net_sc
+====================================
+DATASET:  ImageNet
+DATASET SIZE:  1280000.0
+SAMPLE SIZE: 3x226x226 153228
+====================================
+Model:  AlexNet
+LAYER	 x[C,W,H] 	 w[C,F,K,K] 	 y[F,W,H] 	 TComp
+0 CONV1 	[3, 226, 226] = 153228 	[3, 96, 11, 11] = 34848 	[96, 54, 54] = 279936 	0.000610938
+1 RELU 	[96, 54, 54] = 279936 	[96, 96, 0, 0] = 0 	[96, 54, 54] = 279936 	0.0
+2 MPOOL 	[96, 54, 54] = 279936 	[0, 0, 3, 3] = 0 	[96, 27, 27] = 69984 	0.0
+3 CONV2 	[96, 27, 27] = 69984 	[96, 256, 5, 5] = 614400 	[256, 27, 27] = 186624 	0.0
+4 RELU 	[256, 27, 27] = 186624 	[256, 256, 0, 0] = 0 	[256, 27, 27] = 186624 	0.0
+5 MPOOL 	[256, 27, 27] = 186624 	[0, 0, 3, 3] = 0 	[256, 13, 13] = 43264 	0.0
+6 CONV3 	[256, 13, 13] = 43264 	[256, 384, 3, 3] = 884736 	[384, 13, 13] = 64896 	0.0
+7 RELU 	[384, 13, 13] = 64896 	[384, 384, 0, 0] = 0 	[384, 13, 13] = 64896 	0.0
+8 CONV4 	[384, 13, 13] = 64896 	[384, 384, 3, 3] = 1327104 	[384, 13, 13] = 64896 	0.0
+9 RELU 	[384, 13, 13] = 64896 	[384, 384, 0, 0] = 0 	[384, 13, 13] = 64896 	0.0
+10 CONV5 	[384, 13, 13] = 64896 	[384, 256, 3, 3] = 884736 	[256, 13, 13] = 43264 	0.0
+11 RELU 	[256, 13, 13] = 43264 	[256, 256, 0, 0] = 0 	[256, 13, 13] = 43264 	0.0
+12 MPOOL 	[256, 13, 13] = 43264 	[0, 0, 3, 3] = 0 	[256, 6, 6] = 9216 	0.0
+13 FC6 	[256, 6, 6] = 9216 	[256, 4096, 6, 6] = 37748736 	[4096, 1, 1] = 4096 	0.0
+14 RELU 	[4096, 1, 1] = 4096 	[4096, 4096, 0, 0] = 0 	[4096, 1, 1] = 4096 	0.0
+15 DROPOUT 	[4096, 1, 1] = 4096 	[4096, 4096, 0, 0] = 0 	[4096, 1, 1] = 4096 	0.0
+16 FC7 	[4096, 1, 1] = 4096 	[4096, 4096, 1, 1] = 16777216 	[4096, 1, 1] = 4096 	0.0
+17 RELU 	[4096, 1, 1] = 4096 	[4096, 4096, 0, 0] = 0 	[4096, 1, 1] = 4096 	0.0
+18 DROPOUT 	[4096, 1, 1] = 4096 	[4096, 4096, 0, 0] = 0 	[4096, 1, 1] = 4096 	0.0
+19 FC8 	[4096, 1, 1] = 4096 	[4096, 1000, 1, 1] = 4096000 	[1000, 1, 1] = 1000 	0.0
+Model with 20 layers
+Total |x|: 931692 items
+Total |y|: 779464 items
+Total |w|: 62367776 items
+Total comp: 0.000610938 sec
+Max comp: 0.000610938 sec ==>1636.8273049samples for 100% GPU ultilization
+Max |y|: 279936 items
+Layer config [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+====================================
+Model:  AlexNet
+LAYER	 x[C,W,H] 	 w[C,F,K,K] 	 y[F,W,H] 	 TComp
+CONV1 	[3, 226, 226] 	[3, 96, 11, 11] 	[96, 54, 54] 	5.1364413464e-05
+RELU 	[96, 54, 54] 	[96, 96, 0, 0] 	[96, 54, 54] 	7.07438156624e-08
+MPOOL 	[96, 54, 54] 	[0, 0, 3, 3] 	[96, 27, 27] 	1.52806641831e-05
+CONV2 	[96, 27, 27] 	[96, 256, 5, 5] 	[256, 27, 27] 	0.000226457843937
+RELU 	[256, 27, 27] 	[256, 256, 0, 0] 	[256, 27, 27] 	4.7162543775e-08
+MPOOL 	[256, 27, 27] 	[0, 0, 3, 3] 	[256, 13, 13] 	2.51906209121e-05
+CONV3 	[256, 13, 13] 	[256, 384, 3, 3] 	[384, 13, 13] 	7.56836554327e-05
+RELU 	[384, 13, 13] 	[384, 384, 0, 0] 	[384, 13, 13] 	1.6400143823e-08
+CONV4 	[384, 13, 13] 	[384, 384, 3, 3] 	[384, 13, 13] 	0.000113525483149
+RELU 	[384, 13, 13] 	[384, 384, 0, 0] 	[384, 13, 13] 	1.6400143823e-08
+CONV5 	[384, 13, 13] 	[384, 256, 3, 3] 	[256, 13, 13] 	7.56836554327e-05
+RELU 	[256, 13, 13] 	[256, 256, 0, 0] 	[256, 13, 13] 	1.09334292153e-08
+MPOOL 	[256, 13, 13] 	[0, 0, 3, 3] 	[256, 6, 6] 	5.36604942506e-06
+FC6 	[256, 6, 6] 	[256, 4096, 6, 6] 	[4096, 1, 1] 	1.43094651335e-05
+RELU 	[4096, 1, 1] 	[4096, 4096, 0, 0] 	[4096, 1, 1] 	1.03511755885e-09
+DROPOUT 	[4096, 1, 1] 	[4096, 4096, 0, 0] 	[4096, 1, 1] 	0.0
+FC7 	[4096, 1, 1] 	[4096, 4096, 1, 1] 	[4096, 1, 1] 	6.35976228156e-06
+RELU 	[4096, 1, 1] 	[4096, 4096, 0, 0] 	[4096, 1, 1] 	1.03511755885e-09
+DROPOUT 	[4096, 1, 1] 	[4096, 4096, 0, 0] 	[4096, 1, 1] 	0.0
+FC8 	[4096, 1, 1] 	[4096, 1000, 1, 1] 	[1000, 1, 1] 	1.55267633827e-06
+****
+global value g GOAL 1
+MAX_MINIBATCH 2000000.0
+MAX_RANK 2048.0
+FIX_MIRCO_BATCH 512.0
+NODE_SPEED 7.8e+12
+MEM_PER_NODE 16000000000.0
+ITEM_PER_NODE 4000000000.0
+BW_FACTOR 8e-11
+LATENCY_FACTOR 5e-07
+TOTAL_SAMPLE 1280000.0
+GPU_PER_NODE 4
+
+{'maxOut': 279936, 'totalOut': 779464, 'minFilter': 96, 'minChannel': 96, 'totalIn': 931692, 'totalComp': 0.000610938, 'totalWeight': 62367776, 'minW': 13}
+==========Channel PARALLELISM==========
+max_rank 96
+6
+Get result from Case  chan1  with miniBatch 1024.0 nodeNumber 2.0
+Not enough memory to store model and 2048.0 samples in Filter-Parallelism with 4.0 GPUs
+Not enough memory to store model and 4096.0 samples in Filter-Parallelism with 8.0 GPUs
+Not enough memory to store model and 8192.0 samples in Filter-Parallelism with 16.0 GPUs
+Not enough memory to store model and 16384.0 samples in Filter-Parallelism with 32.0 GPUs
+Not enough memory to store model and 32768.0 samples in Filter-Parallelism with 64.0 GPUs
+Use FIX_MIRCO_BATCH set by user,  512.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 2.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 4.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 8.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 16.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 32.0
+Get result from Case  chan3  with miniBatch 512.0 nodeNumber 64.0
+==================SUMMARY==================
+name		B	p	Mem (bytes)	Tcomp (s)	Tcomm(s)	Time(s)	Cost(min*Node)
+chan1		1024.0	2.0	14259769408.0	434.663007094	98.4137676	533.076774694	18.0
+chan3		512.0	2.0	7250874432.0	434.663007094	98.5825176	533.245524694	18.0
+chan3		512.0	4.0	7128011792.0	260.994190642	148.3800264	409.374217042	28.0
+chan3		512.0	8.0	7067985156.0	174.159782415	695.6714982	869.831280615	120.0
+chan3		512.0	16.0	7038323009.0	130.742578302	753.887007	884.629585302	240.0
+chan3		512.0	32.0	7023579728.25	109.033976245	796.6342614	905.668237645	512.0
+chan3		512.0	64.0	7016230036.06	98.1796752171	845.2868886	943.466563817	1024.0
