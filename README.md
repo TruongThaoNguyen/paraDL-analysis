@@ -34,3 +34,7 @@ optional arguments:
 or
 
  python parallel_analysis.py -net ./RESNET50_ImageNet_profall.net_sc  -plat ABCI.plat -goal 1 --cmaxp 1024 --cmaxB 262144 --cBon=64 --paratype d,f,c,ds,df  --debug y 
+ 
+ 
+ # Detail explaination
+ See our technical report at https://github.com/TruongThaoNguyen/paraDL-analysis/blob/master/main_tech_report.pdf
